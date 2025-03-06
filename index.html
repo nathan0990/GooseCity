@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose City</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .usernameDisplay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Welcome to Goose City</h1>
+    </div>
+    <div class="news-ticker">
+        <marquee behavior="scroll" direction="left">Where the fields are green and the gooses are pretty</marquee>
+    </div>
+    <div class="textContainer">
+        <p><strong>Welcome to Goose City</strong><br>Where the gooses reign supreme!<br><br><strong>Nestled</strong> in a land full of feathered fun and fowl play, Goose City is home to the quirkiest, most charismatic gooses you’ll ever meet. These aren’t your average birds—oh no, each goose is a citizen with their own story, personality, and talents. As you explore our city, you’ll meet the main gooses who have shaped our beloved community. Click on their photos to learn more about these winged legends and their adventures. Get ready for some laughs, a few feathers ruffled, and a whole lot of goose-related goodness. Welcome to the flock!<br><br><strong>Click the Geese to the right to learn more about them!</strong>
+            .</p>
+    </div>
+    <div class="infoBanner">
+        <h2>Goose City News</h2>
+    </div>
+    <div class="photosContainer">
+        <div class="item" onclick="showPopup('cherylPopup')">
+            <img src="Images/Cheryl Goose.jpg" alt="Cheryl Goose Photo">
+            <div class="caption">Cheryl</div>
+        </div>
+        <div class="item" onclick="showPopup('sylviaPopup')">
+            <img src="Images/Sylvia Goose.jpg" alt="Sylvia Goose Photo">
+            <div class="caption">Sylvia</div>
+        </div>
+        <div class="item" onclick="showPopup('montyPopup')">
+            <img src="Images/Monty Goose.jpeg" alt="Monty Goose Photo">
+            <div class="caption">Monty</div>
+        </div>
+        <div class="item" onclick="showPopup('goldenLadiesPopup')">
+            <img src="Images/The Golden Ladies Goose.jpeg" alt="Golden Ladies Goose Photo">
+            <div class="caption">The Golden Ladies</div>
+        </div>
+        <div class="item" onclick="showPopup('fredPopup')">
+            <img src="Images/Fred Goose.webp" alt="Fred Goose Photo">
+            <div class="caption">Fred</div>
+        </div>
+        <div class="item" onclick="showPopup('bobPopup')">
+            <img src="Images/Bob Goose.jpg" alt="Bob Goose Photo">
+            <div class="caption">Bob</div>
+        </div>
+    </div>
+    <div id="cherylPopup" class="popup">
+        <div class="popupBanner">Cheryl</div>
+        <div class="popupContent">
+            <p>Cheryl is the life of the party in Goose City. Known for her vibrant personality and love for dancing, she never misses a chance to spread joy and laughter.</p>
+            <button onclick="closePopup('cherylPopup')">Close</button>
+        </div>
+    </div>
+    <div id="sylviaPopup" class="popup">
+        <div class="popupBanner">Sylvia</div>
+        <div class="popupContent">
+            <p>Sylvia is the wise elder of Goose City. With years of experience and countless stories, she is the go-to goose for advice and guidance.</p>
+            <button onclick="closePopup('sylviaPopup')">Close</button>
+        </div>
+    </div>
+    <div id="montyPopup" class="popup">
+        <div class="popupBanner">Monty</div>
+        <div class="popupContent">
+            <p>Monty is the adventurous spirit of Goose City. Always exploring new places and trying new things, Monty inspires others to step out of their comfort zones.</p>
+            <button onclick="closePopup('montyPopup')">Close</button>
+        </div>
+    </div>
+    <div id="goldenLadiesPopup" class="popup">
+        <div class="popupBanner">The Golden Ladies</div>
+        <div class="popupContent">
+            <p>The Golden Ladies are the glamorous geese of Goose City. With their sparkling feathers and elegant demeanor, they bring a touch of class to the community.</p>
+            <button onclick="closePopup('goldenLadiesPopup')">Close</button>
+        </div>
+    </div>
+    <div id="fredPopup" class="popup">
+        <div class="popupBanner">Fred</div>
+        <div class="popupContent">
+            <p>Fred is the prankster of Goose City. Always up to some mischief, Fred keeps everyone on their toes with his playful antics.</p>
+            <button onclick="closePopup('fredPopup')">Close</button>
+        </div>
+    </div>
+    <div id="bobPopup" class="popup">
+        <div class="popupBanner">Bob</div>
+        <div class="popupContent">
+            <p>Bob is the strong and silent type. With his calm presence and reliable nature, Bob is the backbone of Goose City.</p>
+            <button onclick="closePopup('bobPopup')">Close</button>
+        </div>
+    </div>
+    <div id="chatPopup" class="popup">
+        <div id="chatBox">
+            <div id="chatBanner">Chat</div>
+            <div id="chatMessages"></div>
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <button id="chatToggle" onclick="toggleChat()">Chat</button>
+    <div class="usernameDisplay" id="usernameDisplay"></div>
+    <script>
+        let username = '';
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            const userMessage = document.createElement('div');
+            userMessage.textContent = `${username}: ${input.value}`;
+            messages.appendChild(userMessage);
+            input.value = '';
+
+            setTimeout(() => {
+                const adminMessage = document.createElement('div');
+                adminMessage.textContent = 'Bob: Quack';
+                messages.appendChild(adminMessage);
+            }, 2000);
+        }
+
+        function toggleChat() {
+            const chatPopup = document.getElementById('chatPopup');
+            const messages = document.getElementById('chatMessages');
+            chatPopup.style.display = chatPopup.style.display === 'none' ? 'block' : 'none';
+            if (chatPopup.style.display === 'block') {
+                setTimeout(() => {
+                    const adminMessage = document.createElement('div');
+                    adminMessage.textContent = 'Bob: Quack';
+                    messages.appendChild(adminMessage);
+                }, 2000);
+            }
+        }
+
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('chatPopup').style.display = 'none';
+
+            // Check if the user already has a username stored
+            username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('usernameDisplay').textContent = `Welcome, ${username}`;
+            } else {
+                document.getElementById('usernamePopup').style.display = 'block';
+            }
+        });
+
+        // Function to set the username
+        function setUsername() {
+            username = document.getElementById('usernameInput').value.trim();
+            if (username) {
+                localStorage.setItem('username', username);
+                document.getElementById('usernamePopup').style.display = 'none';
+                document.getElementById('usernameDisplay').textContent = `Welcome, ${username}`;
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+    </script>
+    <div id="usernamePopup" class="popup">
+        <div class="popupBanner">Enter Your Username</div>
+        <div class="popupContent">
+            <input type="text" id="usernameInput" placeholder="Enter your username">
+            <button onclick="setUsername()">Save</button>
+        </div>
+    </div>
+</body>
+</html>

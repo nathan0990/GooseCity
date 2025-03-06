@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* This ensures padding and borders don't affect the layout */
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 20px;
+    background-color: #f0f0f0;
+    padding: 0%;
+    margin: 0;
+}
+.banner {
+    background: linear-gradient;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    padding: 0%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+} 
+.news-ticker {
+    background-color: #09a3136f;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}  
+h1 {
+    color: #6fff00a3;
+    position: relative;
+    text-align: left;
+    left: 20px;
+    top: 20px;
+}
+.textContainer {
+    width: 80%;
+    margin: 20px;
+    height: 400px;
+    width: 35%;
+    padding: 10px;
+    background: linear-gradient()
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 170px;
+    left: 40px;
+    align-content: center;
+    justify-items: centre;
+
+}
+p {
+    color: #555;
+}
+
+.infoBanner {
+    background-color: #09a3136f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 650px; /* 50px under the text container */
+    left: 0px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.photosContainer {
+    display: grid;
+    background-color: rgba(97, 243, 92, 0.505);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 40px;
+    position: absolute;
+    right: 0px; /* Position the photos on the right side */
+    top: 145px; /* Adjust the top position as needed */
+    height: 505px;
+    width: 55%;
+    align-content: center;
+    justify-items: centre;
+    border-left-style: groove;
+    border-left-color: rgba(97, 243, 92, 0.505);
+    border-left-width: 20px;
+    padding-inline: 60px;
+    ;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 8px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+    margin-top: 5px;
+    height: 35px;
+    width: 150px;
+    background-color: white;
+    text-align:center;
+    font-size: 14px;
+    border: 10px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: lightgray;
+    color: #333;
+    padding-inline: 20px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popupBanner {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.popupContent {
+    padding: 20px;
+    text-align: center;
+}
+
+.popupContent button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Goose buttons and photo styles removed */
+
+#chatPopup {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 250px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#chatBox {
+    width: 100%;
+}
+
+#chatBanner {
+    background-color: #9af39cc3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#chatMessages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#chatInput {
+    width: calc(100% - 60px);
+    padding: 5px;
+    display: inline-block; /* Align input and button inline */
+}
+
+#chatBox button {
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    font-size: 0.8em; /* Make the button text smaller */
+    display: inline-block; /* Align input and button inline */
+    vertical-align: top; /* Align button to the top of the input */
+}
+
+#chatToggle {
+    position: fixed;
+    bottom: 10px;
+    left: 10px; /* Move the button to the bottom left corner */
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
